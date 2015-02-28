@@ -15,10 +15,12 @@
     ]]>
   </billboard>
   <script>
-    setInterval(function(){
-      document.getElementById("teapot").rotation.y = new Date().valueOf() / 900;
-      document.getElementById("teapot").rotation.z = new Date().valueOf() / 1300;
-    }, 1000 / 5);
+    <![CDATA[
+      setInterval(function(){
+        document.getElementById("teapot").rotation.y = new Date().valueOf() / 900;
+        document.getElementById("teapot").rotation.z = new Date().valueOf() / 1300;
+      }, 1000 / 5);
+    ]]>
   </script>
 
   <model src="/models/armchair.obj" position="-10 0 -13" rotation="0 1.3 0" style="color: #933;" scale="0.8 0.8 0.8" />
@@ -29,9 +31,59 @@
     ]]>
   </billboard>
 
+  <!-- Climbing puzzle -->
+  <box class="elevator" position="15 -2 10.4" scale="1.2 10 1.2" style="color: #999" />
+  <box position="13.5 6.5 10.4" scale="1.2 0.2 1.2" style="color: #999" />
+  <box position="9.5 6.5 10.4" scale="1.2 0.2 1.2" style="color: #999" />
+  <box position="5.5 6.5 10.4" scale="1.2 0.2 1.2" style="color: #999" />
+  <box position="4.4 5.9 10.4" rotation="0 0 0.78" scale="2.0 0.2 1.2" style="color: #999" />
+  <box position="3.1 5.2 10.4" scale="1.2 0.2 1.2" style="color: #999" />
+  <box position="-1.5 5.2 10.4" scale="1.2 0.2 1.2" style="color: #999" />
+  <box position="-9 5.2 10.4" scale="8 0.2 1.2" style="color: #999" />
+  <box position="-12 5.2 9" scale="4 0.2 2.4" style="color: #999" />
+
+  <link href="//scenevr-demo.herokuapp.com/click_to_divide.xml" position="-12.5 6.2 9.4" rotation="0 1.57 0"/>
+
+  <script>
+    <![CDATA[
+      document.querySelectorAll(".elevator").forEach(function(e){
+        setInterval(function(){
+          var m = 7,
+            i = new Date().valueOf() / 500,
+            y = m - Math.abs(i % (2*m) - m);
+
+          e.position.y = y - 5;
+        }, 1000 / 5);
+      });
+    ]]>
+  </script>
+
+  <!-- North wing -->
+  <billboard position="-2 1.0 10.8" scale="1.2 1.2 0.1" rotation="0 3.14 0">
+    <![CDATA[
+      <center style="color: #333; font-size: 32px; margin: 80px;">
+        Did you know you can <b>create</b> your own scenevr scenes?
+        <br />
+        <br />
+        After you make a scene, post it to <b>/r/scenevr</b> and we will
+        add a portal to your scene in this room.
+      </center>
+    ]]>
+  </billboard>
+
   <!-- West wing -->
   <model src="/models/reddit.obj" position="-34 6 -3" rotation="0 1.57 0" style="color: #642; collision: none; " scale="3 3 3" />
   <model id="snoo" src="/models/snoo.obj" position="-11.5 0 -1" rotation="0 1.57 0" style="light-map: url(/textures/snoo.jpg);" scale="1 1 1" />
+  <billboard position="-12.5 1.0 -6" scale="1.2 1.2 0.1" rotation="0 1.57 0">
+    <![CDATA[
+      <center style="color: #333; font-size: 42px; margin-top: 40px;">
+        <b>Reddit Galleries</b><br /><br />
+        Make sure you click the orange globes, they are portals that will link you to the gallery!
+        <br /><br />
+        <small style="font-size: 24px; color: #aaa">(There might be two hidden portals too)</small>
+      </center>
+    ]]>
+  </billboard>
 
   <script>
     document.getElementById("snoo").addEventListener("click", function(){
@@ -46,17 +98,19 @@
   <box class="slider" position="-24.5 1.0 1.5" scale="2 2 1" style="color: #952" />
 
   <script>
-    document.querySelectorAll(".slider").forEach(function(s){
-      s.addEventListener("click", function(){
-        if(s.position.y == 1.0){
-          s.position.y = 8.5;
-        }
+    <![CDATA[
+      document.querySelectorAll(".slider").forEach(function(s){
+        s.addEventListener("click", function(){
+          if(s.position.y < 2){
+            s.position.y = 8.5;
+          }
 
-        setTimeout(function(){
-          s.position.y = 1.0;
-        }, 5000);
+          setTimeout(function(){
+            s.position.y = 1.0;
+          }, 5000);
+        });
       });
-    });
+    ]]>
   </script>
 
   <link href="//reddit.scenevr.hosting/r-microporn.xml" position="-29.2 1 1.5" />
