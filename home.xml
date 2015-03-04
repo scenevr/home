@@ -123,28 +123,6 @@
     });
   </script>
 
-  <link href="//reddit.scenevr.hosting/r-gentlemanboners.xml" position="-24.5 1 -8.3" />
-  <box class="slider" position="-24.5 1.0 -8.3" scale="2 2 1" style="color: #952" />
-
-  <link href="//reddit.scenevr.hosting/r-ladyboners.xml" position="-24.5 1 1.5" />
-  <box class="slider" position="-24.5 1.0 1.5" scale="2 2 1" style="color: #952" />
-
-  <script>
-    <![CDATA[
-      document.querySelectorAll(".slider").forEach(function(s){
-        s.addEventListener("click", function(){
-          if(s.position.y < 2){
-            s.position.y = 8.5;
-          }
-
-          setTimeout(function(){
-            s.position.y = 1.0;
-          }, 5000);
-        });
-      });
-    ]]>
-  </script>
-
   <link href="//reddit.scenevr.hosting/r-microporn.xml" position="-29.2 1 1.5" />
   <billboard position="-28 2.3 1.7" scale="3 3 0.1" rotation="0 3.14 0">
     <![CDATA[
