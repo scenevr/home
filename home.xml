@@ -5,7 +5,7 @@
   <skybox style="color: linear-gradient(#fff, #ccf)" />
 
   <!-- Gallery model -->
-  <model src="/models/home.obj" position="0 0.01 0" style="collision: none; color: #555; light-map: url(/textures/home-lightmap.jpg)" />
+  <model src="/models/home.obj" position="0 0.01 0" style="collision: none; color: #444; light-map: url(/textures/home-lightmap.jpg)" />
 
   <!-- Foyer -->
   <model id="teapot" src="/models/teapot.obj" position="13 1.2 -15" style="color: #f70; collision: none;" scale="0.5 0.5 0.5" />
@@ -42,7 +42,15 @@
   <box position="-9 5.2 10.4" scale="8 0.2 1.2" style="color: #999" />
   <box position="-12 5.2 9" scale="4 0.2 2.4" style="color: #999" />
 
-  <link href="//scenevr-demo.herokuapp.com/click_to_divide.xml" position="-12.5 6.2 9.4" rotation="0 1.57 0"/>
+  <link href="//samples.scenevr.hosting/click_to_divide.xml" position="-12.5 6.2 9.4" rotation="0 1.57 0"/>
+
+  <model id="queenie" src="/models/queenie.obj" position="-11.6 5.3 10.2" rotation="0 1.7 0" scale="0.2 0.2 0.2" style="texture-map: url(/textures/queenie.png); collision: none;" />
+
+  <script>
+    document.getElementById("queenie").addEventListener("click", function(){
+      console.log("Queenie says: Mow.");
+    });
+  </script>
 
   <script>
     <![CDATA[
@@ -58,15 +66,39 @@
     ]]>
   </script>
 
-  <!-- North wing -->
-  <billboard position="-2 1.0 10.8" scale="1.2 1.2 0.1" rotation="0 3.14 0">
+  <!-- Toggle Matrix -->
+  <box class="toggle" position="-7 1 10.7" scale="0.3 0.3 0.3" style="color: #fff" />
+  <box class="toggle" position="-6.5 1 10.7" scale="0.3 0.3 0.3" style="color: #333" />
+  <box class="toggle" position="-6 1 10.7" scale="0.3 0.3 0.3" style="color: #333" />
+  <box class="toggle" position="-5.5 1 10.7" scale="0.3 0.3 0.3" style="color: #333" />
+
+  <box class="toggle" position="-7 1.5 10.7" scale="0.3 0.3 0.3" style="color: #333" />
+  <box class="toggle" position="-6.5 1.5 10.7" scale="0.3 0.3 0.3" style="color: #333" />
+  <box class="toggle" position="-6 1.5 10.7" scale="0.3 0.3 0.3" style="color: #333" />
+  <box class="toggle" position="-5.5 1.5 10.7" scale="0.3 0.3 0.3" style="color: #333" />
+
+  <box class="toggle" position="-7 2 10.7" scale="0.3 0.3 0.3" style="color: #333" />
+  <box class="toggle" position="-6.5 2 10.7" scale="0.3 0.3 0.3" style="color: #333" />
+  <box class="toggle" position="-6 2 10.7" scale="0.3 0.3 0.3" style="color: #333" />
+  <box class="toggle" position="-5.5 2 10.7" scale="0.3 0.3 0.3" style="color: #333" />
+
+  <box class="toggle" position="-7 2.5 10.7" scale="0.3 0.3 0.3" style="color: #333" />
+  <box class="toggle" position="-6.5 2.5 10.7" scale="0.3 0.3 0.3" style="color: #333" />
+  <box class="toggle" position="-6 2.5 10.7" scale="0.3 0.3 0.3" style="color: #333" />
+  <box class="toggle" position="-5.5 2.5 10.7" scale="0.3 0.3 0.3" style="color: #333" />
+
+  <script>
+    document.querySelectorAll("box.toggle").forEach(function(b){
+      b.addEventListener("click", function(){
+        b.style.color = (b.style.color == '#fff' ? '#333' : '#fff');
+      });
+    });
+  </script>
+
+  <billboard position="-8 1.4 10.8" scale="1.2 1.2 0.1" rotation="0 3.14 0">
     <![CDATA[
-      <center style="color: #333; font-size: 32px; margin: 80px;">
-        Did you know you can <b>create</b> your own scenevr scenes?
-        <br />
-        <br />
-        After you make a scene, post it to <b>/r/scenevr</b> and we will
-        add a portal to your scene in this room.
+      <center style="color: #333; font-size: 32px; margin: 160px 80px;">
+        This is the toggle matrix. Click a box to change it's color.
       </center>
     ]]>
   </billboard>
@@ -149,6 +181,21 @@
       </div>
     ]]>
   </billboard>
+
+  <!-- South wing -->
+  <billboard position="-2 1.0 10.8" scale="1.2 1.2 0.1" rotation="0 3.14 0">
+    <![CDATA[
+      <center style="color: #333; font-size: 32px; margin: 80px;">
+        Did you know you can <b>create</b> your own scenevr scenes?
+        <br />
+        <br />
+        After you make a scene, post it to <b>/r/scenevr</b> and we will
+        add a portal to your scene in this room.
+      </center>
+    ]]>
+  </billboard>
+
+  <link position="0.5 1 31.2" href="//velveeta.scenevr.hosting/thestreet.xml" rotation="0 3.14 0" />
 
   <!-- Collision -->
 
