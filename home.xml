@@ -5,7 +5,7 @@
   <skybox style="color: linear-gradient(#fff, #ccf)" />
 
   <!-- Gallery model -->
-  <model src="/models/home-2.obj" position="0 0.01 0" style="light-map: url(/textures/home-2.png); collision: mesh; " />
+  <model src="/models/home-2.obj" position="0 0.01 0" style="light-map: url(/textures/home-2.jpg); collision: mesh; " />
 
   <!-- Foyer -->
   <model id="teapot" src="/models/teapot.obj" position="13 1.2 -15" style="color: #f70; collision: none;" scale="0.5 0.5 0.5" />
@@ -199,6 +199,7 @@
   </billboard>
 
   <link position="0.5 1 31.2" href="//velveeta.scenevr.hosting/thestreet.xml" rotation="0 3.14 0" />
+<<<<<<< Updated upstream
 
   <!--
   <billboard position="1.0 20.5 -8" rotation="0 0 0" scale="3 3 0.2">
@@ -231,4 +232,6 @@
 
   </script>
   =-->
+=======
+>>>>>>> Stashed changes
  </scene>
