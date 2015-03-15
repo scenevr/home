@@ -1,6 +1,7 @@
+
 <scene>
 
-  <spawn position="0 1 0" />
+  <spawn position="0.5 0 12" />
 
   <skybox style="color: linear-gradient(#fff, #ccf)" />
 
@@ -67,39 +68,48 @@
   </script>
 
   <!-- Toggle Matrix -->
-  <box class="toggle" position="-7 1 10.9" scale="0.3 0.3 0.3" style="color: #f70" />
-  <box class="toggle" position="-6.5 1 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-6 1 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-5.5 1 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-
-  <box class="toggle" position="-7 1.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-6.5 1.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-6 1.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-5.5 1.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-
-  <box class="toggle" position="-7 2 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-6.5 2 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-6 2 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-5.5 2 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-
-  <box class="toggle" position="-7 2.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-6.5 2.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-6 2.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-5.5 2.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
+  <box class="palette" position="-5 1 10.9" scale="0.3 0.3 0.3" style="color: #fff" />
+  <box class="palette" position="-5 1.5 10.9" scale="0.3 0.3 0.3" style="color: #0ff" />
+  <box class="palette" position="-5 2 10.9" scale="0.3 0.3 0.3" style="color: #f0f" />
+  <box class="palette" position="-5 2.5 10.9" scale="0.3 0.3 0.3" style="color: #000" />
 
   <script>
-    document.querySelectorAll("box.toggle").forEach(function(b){
-      b.addEventListener("click", function(){
-        b.style.color = (b.style.color == '#f70' ? '#111' : '#f70');
-      });
-    });
+    <![CDATA[
+      var x, y,
+        offset = new Vector(-7, 1, 10.8),
+        color = '#fff';
+
+      document.querySelectorAll("box.palette").forEach(function(box){
+        box.addEventListener("click", function(){ color = box.style.color; });
+      })
+
+      function updateName(name){
+        // var b = document.getElementById("colormatrix");
+        // b.childNodes.forEach(function(c){b.removeChild(c);});
+        // b.appendChild(document.createCDataNode("");
+      }
+
+      for(x=0;x<6;x++){
+        for(y=0;y<6;y++){
+          (function(x,y){
+            var pixel = document.createElement("box");
+            pixel.style.color = Math.random() < 0.5 ? "#000" : color;
+            pixel.scale = new Vector(0.25, 0.25, 0.05);
+            pixel.position = new Vector(x * 0.3, y * 0.3, 0).add(offset);
+            document.scene.appendChild(pixel);
+
+            pixel.addEventListener("click", function(e){ updateName(e.player.name); pixel.style.color = (pixel.style.color == color) ? "#000" : color; });
+          })(x,y);
+        }
+      }
+
+      //updateName("the system");
+    ]]>
   </script>
 
-  <billboard position="-8 1.4 10.8" scale="1.2 1.2 0.1" rotation="0 3.14 0">
+  <billboard id="colormatrix" position="-8 1.4 10.8" scale="1.2 1.2 0.1" rotation="0 3.14 0">
     <![CDATA[
-      <center style="color: #333; font-size: 32px; margin: 160px 80px;">
-        This is the toggle matrix. Click a box to change it's color.
-      </center>
+      <center style='color: #333; font-size: 30px; margin: 32px;'><b>The CGA Pixel Matrix</b><br/><br/>Click a box to change it's color.<br /><br />CGA was a graphics card introduced 1981 by IBM. It's standard graphics mode had these four colors.<br /><br />The pixelart was last touched by <b>" + name + "</b>.</center>
     ]]>
   </billboard>
 
@@ -111,6 +121,8 @@
       <center style="color: #333; font-size: 42px; margin-top: 40px;">
         <b>Reddit Galleries</b><br /><br />
         Make sure you click the orange globes, they are portals that will link you to the gallery!
+        <br /><br />
+        <small style="font-size: 24px; color: #aaa">(There might be two hidden portals too)</small>
       </center>
     ]]>
   </billboard>
@@ -199,39 +211,4 @@
   </billboard>
 
   <link position="0.5 1 31.2" href="//velveeta.scenevr.hosting/thestreet.xml" rotation="0 3.14 0" />
-<<<<<<< Updated upstream
-
-  <!--
-  <billboard position="1.0 20.5 -8" rotation="0 0 0" scale="3 3 0.2">
-    <![CDATA[
-	    <div style="font-size: 32px">
-	    	<p>
-	    		Welcome to <b>SceneVR</b>.
-	    	</p>
-	    	
-	    	<p style="color: #555">
-		    	This is the home room. Click any
-	    		of the globes to open a portal to the adjoining scenes.
-	    	</p>
-	    </div>
-    ]]>
-  </billboard>
-
-  <box class="kinetic" style="color: #b0b5e5; material: phong;" scale="0.2 0.2 0.2" position="8 21 8" />
-
-  <script>
-      setInterval(function(){
-        var t = new Date().getTime() / 5000.0
-
-        var v = new Vector(
-          Math.sin(t * 11) * 2, 0, Math.cos(t * 7) * 2
-        );
-
-        document.querySelectorAll("box.kinetic")[0].position = v.add(new Vector(8, 21, 8));
-      }, 1000 / 10);
-
-  </script>
-  =-->
-=======
->>>>>>> Stashed changes
  </scene>
