@@ -1,11 +1,13 @@
+
 <scene>
 
-  <spawn position="0 1 0" />
+  <spawn position="0.5 0 12" />
 
   <skybox style="color: linear-gradient(#fff, #ccf)" />
 
-  <!-- Gallery model -->
-  <model src="/models/home-2.obj" position="0 0.01 0" style="light-map: url(/textures/home-2.png); collision: mesh; " />
+  <!-- Ceiling and Wall models for main homeroom  -->
+  <model src="/models/walls.obj" position="0 0.01 0" style="light-map: url(/textures/walls.png); collision: mesh; " />
+  <model src="/models/ceiling.obj" position="0 0.01 0" style="light-map: url(/textures/ceiling.png); collision: none; " />
 
   <!-- Foyer -->
   <model id="teapot" src="/models/teapot.obj" position="13 1.2 -15" style="color: #f70; collision: none;" scale="0.5 0.5 0.5" />
@@ -67,39 +69,48 @@
   </script>
 
   <!-- Toggle Matrix -->
-  <box class="toggle" position="-7 1 10.9" scale="0.3 0.3 0.3" style="color: #f70" />
-  <box class="toggle" position="-6.5 1 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-6 1 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-5.5 1 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-
-  <box class="toggle" position="-7 1.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-6.5 1.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-6 1.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-5.5 1.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-
-  <box class="toggle" position="-7 2 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-6.5 2 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-6 2 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-5.5 2 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-
-  <box class="toggle" position="-7 2.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-6.5 2.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-6 2.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
-  <box class="toggle" position="-5.5 2.5 10.9" scale="0.3 0.3 0.3" style="color: #111" />
+  <box class="palette" position="-5 1 10.9" scale="0.3 0.3 0.3" style="color: #fff" />
+  <box class="palette" position="-5 1.5 10.9" scale="0.3 0.3 0.3" style="color: #0ff" />
+  <box class="palette" position="-5 2 10.9" scale="0.3 0.3 0.3" style="color: #f0f" />
+  <box class="palette" position="-5 2.5 10.9" scale="0.3 0.3 0.3" style="color: #000" />
 
   <script>
-    document.querySelectorAll("box.toggle").forEach(function(b){
-      b.addEventListener("click", function(){
-        b.style.color = (b.style.color == '#f70' ? '#111' : '#f70');
-      });
-    });
+    <![CDATA[
+      var x, y,
+        offset = new Vector(-7, 1, 10.8),
+        color = '#fff';
+
+      document.querySelectorAll("box.palette").forEach(function(box){
+        box.addEventListener("click", function(){ color = box.style.color; });
+      })
+
+      function updateName(name){
+        // var b = document.getElementById("colormatrix");
+        // b.childNodes.forEach(function(c){b.removeChild(c);});
+        // b.appendChild(document.createCDataNode("");
+      }
+
+      for(x=0;x<6;x++){
+        for(y=0;y<6;y++){
+          (function(x,y){
+            var pixel = document.createElement("box");
+            pixel.style.color = Math.random() < 0.5 ? "#000" : color;
+            pixel.scale = new Vector(0.25, 0.25, 0.05);
+            pixel.position = new Vector(x * 0.3, y * 0.3, 0).add(offset);
+            document.scene.appendChild(pixel);
+
+            pixel.addEventListener("click", function(e){ updateName(e.player.name); pixel.style.color = (pixel.style.color == color) ? "#000" : color; });
+          })(x,y);
+        }
+      }
+
+      //updateName("the system");
+    ]]>
   </script>
 
-  <billboard position="-8 1.4 10.8" scale="1.2 1.2 0.1" rotation="0 3.14 0">
+  <billboard id="colormatrix" position="-8 1.4 10.8" scale="1.2 1.2 0.1" rotation="0 3.14 0">
     <![CDATA[
-      <center style="color: #333; font-size: 32px; margin: 160px 80px;">
-        This is the toggle matrix. Click a box to change it's color.
-      </center>
+      <center style='color: #333; font-size: 30px; margin: 32px;'><b>The CGA Pixel Matrix</b><br/><br/>Click a box to change it's color.<br /><br />CGA was a graphics card introduced 1981 by IBM. It's standard graphics mode had these four colors.</center>
     ]]>
   </billboard>
 
@@ -112,7 +123,7 @@
         <b>Reddit Galleries</b><br /><br />
         Make sure you click the orange globes, they are portals that will link you to the gallery!
         <br /><br />
-        <small style="font-size: 24px; color: #aaa">(There might be two hidden portals too)</small>
+        Galleries are updated daily.
       </center>
     ]]>
   </billboard>
@@ -123,27 +134,27 @@
     });
   </script>
 
-  <link href="//reddit.scenevr.hosting/r-microporn.xml" position="-29.2 1 1.5" />
+  <link href="//reddit.scenevr.hosting/r-aww.xml" position="-29.2 1 1.5" />
   <billboard position="-28 2.3 1.7" scale="3 3 0.1" rotation="0 3.14 0">
     <![CDATA[
-      <img src="/images/microporn.jpg" style="width: 100%; margin-top: 60px;" />
-      <center>/r/microporn</center>
+      <img src="/images/r-aww.jpg" style="width: 100%; margin-top: 60px;" />
+      <center>/r/aww</center>
     ]]>
   </billboard>
 
-  <link href="//reddit.scenevr.hosting/r-desertporn.xml" position="-33.5 1 -4.2" rotation="0 1.57 0" />
+  <link href="//reddit.scenevr.hosting/r-art.xml" position="-33.5 1 -4.2" rotation="0 1.57 0" />
   <billboard position="-34 2.3 -3" scale="3 3 0.1" rotation="0 1.57 0">
     <![CDATA[
-      <img src="/images/desert.jpg" style="width: 100%;margin-top: 60px;" />
-      <center>/r/desertporn</center>
+      <img src="/images/r-art.jpg" style="width: 100%;margin-top: 60px;" />
+      <center>/r/art</center>
     ]]>
   </billboard>
 
-  <link href="//reddit.scenevr.hosting/r-fractalporn.xml" position="-27.0 1 -8.3" />
+  <link href="//reddit.scenevr.hosting/r-gentlemanboners.xml" position="-27.0 1 -8.3" />
   <billboard position="-28 2.3 -8.5" scale="3 3 0.1" rotation="0 0 0">
     <![CDATA[
-      <img src="/images/fractal.jpg" style="width: 100%; margin-top: 90px" />
-      <center>/r/fractalporn</center>
+      <img src="/images/r-gentlemanboners.jpg" style="width: 100%; margin-top: 40px" />
+      <center>/r/gentlemanboners</center>
     ]]>
   </billboard>
 
@@ -184,8 +195,9 @@
   <model src="/models/mac.obj" scale="1.1 1.1 1.1" rotation="0 1.57 0" position="11.1 1.05 15.6" style="collision: none; color: #eee;" />
   <plane scale="0.18 0.15 0.1" rotation="0 1.57 0" position="11.12 1.31 15.46" style="texture-map: url(/images/system1.png);" />
   <box scale="0.3 1.5 0.9" position="11.1 0.75 15.5" style="visibility: hidden;" />
-  <plane scale="1.2 1.6 0.1" rotation="0 1.57 0" position="8.26 2.5 15.4" style="texture-map: url(/images/chloe.jpg?);" />
+  <plane scale="1.2 1.6 0.1" rotation="0 1.57 0" position="8.26 2.5 15.4" style="texture-map: url(/images/chloe.jpg);" />
   <box scale="1.2 1.6 0.1" rotation="0 1.57 0" position="8.2 2.5 15.4" style="color: #999;" />
+  <link rotation="0 1.57 0" position="8.27 1.0 15.4" href="//puckman.scenevr.hosting/game.xml" />
 
   <!-- South wing -->
   <billboard position="-2 1.0 10.8" scale="1.2 1.2 0.1" rotation="0 3.14 0">
@@ -200,37 +212,5 @@
     ]]>
   </billboard>
 
-  <link position="0.5 1 31.2" href="//velveeta.scenevr.hosting/thestreet.xml" rotation="0 3.14 0" />
-
-  <!--
-  <billboard position="1.0 20.5 -8" rotation="0 0 0" scale="3 3 0.2">
-    <![CDATA[
-	    <div style="font-size: 32px">
-	    	<p>
-	    		Welcome to <b>SceneVR</b>.
-	    	</p>
-	    	
-	    	<p style="color: #555">
-		    	This is the home room. Click any
-	    		of the globes to open a portal to the adjoining scenes.
-	    	</p>
-	    </div>
-    ]]>
-  </billboard>
-
-  <box class="kinetic" style="color: #b0b5e5; material: phong;" scale="0.2 0.2 0.2" position="8 21 8" />
-
-  <script>
-      setInterval(function(){
-        var t = new Date().getTime() / 5000.0
-
-        var v = new Vector(
-          Math.sin(t * 11) * 2, 0, Math.cos(t * 7) * 2
-        );
-
-        document.querySelectorAll("box.kinetic")[0].position = v.add(new Vector(8, 21, 8));
-      }, 1000 / 10);
-
-  </script>
-  =-->
+  <!-- Wait until we have somewhere to link to.... -->
  </scene>
