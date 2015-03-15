@@ -109,7 +109,7 @@
 
   <billboard id="colormatrix" position="-8 1.4 10.8" scale="1.2 1.2 0.1" rotation="0 3.14 0">
     <![CDATA[
-      <center style='color: #333; font-size: 30px; margin: 32px;'><b>The CGA Pixel Matrix</b><br/><br/>Click a box to change it's color.<br /><br />CGA was a graphics card introduced 1981 by IBM. It's standard graphics mode had these four colors.<br /><br />The pixelart was last touched by <b>" + name + "</b>.</center>
+      <center style='color: #333; font-size: 30px; margin: 32px;'><b>The CGA Pixel Matrix</b><br/><br/>Click a box to change it's color.<br /><br />CGA was a graphics card introduced 1981 by IBM. It's standard graphics mode had these four colors.</center>
     ]]>
   </billboard>
 
