@@ -122,7 +122,7 @@
         <b>Reddit Galleries</b><br /><br />
         Make sure you click the orange globes, they are portals that will link you to the gallery!
         <br /><br />
-        <small style="font-size: 24px; color: #aaa">(There might be two hidden portals too)</small>
+        Galleries are updated daily.
       </center>
     ]]>
   </billboard>
@@ -133,27 +133,27 @@
     });
   </script>
 
-  <link href="//reddit.scenevr.hosting/r-microporn.xml" position="-29.2 1 1.5" />
+  <link href="//reddit.scenevr.hosting/r-aww.xml" position="-29.2 1 1.5" />
   <billboard position="-28 2.3 1.7" scale="3 3 0.1" rotation="0 3.14 0">
     <![CDATA[
-      <img src="/images/microporn.jpg" style="width: 100%; margin-top: 60px;" />
-      <center>/r/microporn</center>
+      <img src="/images/r-aww.jpg" style="width: 100%; margin-top: 60px;" />
+      <center>/r/aww</center>
     ]]>
   </billboard>
 
-  <link href="//reddit.scenevr.hosting/r-desertporn.xml" position="-33.5 1 -4.2" rotation="0 1.57 0" />
+  <link href="//reddit.scenevr.hosting/r-art.xml" position="-33.5 1 -4.2" rotation="0 1.57 0" />
   <billboard position="-34 2.3 -3" scale="3 3 0.1" rotation="0 1.57 0">
     <![CDATA[
-      <img src="/images/desert.jpg" style="width: 100%;margin-top: 60px;" />
-      <center>/r/desertporn</center>
+      <img src="/images/r-art.jpg" style="width: 100%;margin-top: 60px;" />
+      <center>/r/art</center>
     ]]>
   </billboard>
 
-  <link href="//reddit.scenevr.hosting/r-fractalporn.xml" position="-27.0 1 -8.3" />
+  <link href="//reddit.scenevr.hosting/r-gentlemanboners.xml" position="-27.0 1 -8.3" />
   <billboard position="-28 2.3 -8.5" scale="3 3 0.1" rotation="0 0 0">
     <![CDATA[
-      <img src="/images/fractal.jpg" style="width: 100%; margin-top: 90px" />
-      <center>/r/fractalporn</center>
+      <img src="/images/r-gentlemanboners.jpg" style="width: 100%; margin-top: 40px" />
+      <center>/r/gentlemanboners</center>
     ]]>
   </billboard>
 
@@ -210,5 +210,5 @@
     ]]>
   </billboard>
 
-  <link position="0.5 1 31.2" href="//velveeta.scenevr.hosting/thestreet.xml" rotation="0 3.14 0" />
+  <!-- Wait until we have somewhere to link to.... -->
  </scene>
