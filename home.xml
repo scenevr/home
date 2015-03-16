@@ -6,8 +6,9 @@
   <skybox style="color: linear-gradient(#fff, #ccf)" />
 
   <!-- Ceiling and Wall models for main homeroom  -->
-  <model src="/models/walls.obj" position="0 0.01 0" style="light-map: url(/textures/walls.png); collision: mesh; " />
+  <model src="/models/walls.obj" position="0 0.01 0" style="light-map: url(/textures/test_walls.png); collision: mesh; " />
   <model src="/models/ceiling.obj" position="0 0.01 0" style="light-map: url(/textures/ceiling.png); collision: none; " />
+  <model src="/models/ball_homeroom.obj" position="0 0.01 0" style="color: #fff; collision: none;" />
 
   <!-- Foyer -->
   <model id="teapot" src="/models/teapot.obj" position="13 1.2 -15" style="color: #f70; collision: none;" scale="0.5 0.5 0.5" />
