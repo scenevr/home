@@ -3,10 +3,12 @@
 
   <spawn position="0.5 0 12" />
 
-  <skybox style="color: linear-gradient(#fff, #ccf)" />
+  <skybox style="color: linear-gradient(#ccc, #555)" />
 
   <!-- Gallery model -->
-  <model src="/models/home-2.obj" position="0 0.01 0" style="light-map: url(/textures/home-2.jpg); collision: mesh; " />
+  <model src="/models/walls.obj" position="0 0.01 0" style="light-map: url(/textures/walls.jpg); collision: mesh; " />
+  <model src="/models/ceiling.obj" position="0 0.01 0" style="light-map: url(/textures/ceiling.jpg); collision: none; " />
+  <model src="/models/ball_homeroom.obj" position="0 0.01 0" style="color: #fff; collision: none;" />
 
   <!-- Foyer -->
   <model id="teapot" src="/models/teapot.obj" position="13 1.2 -15" style="color: #f70; collision: none;" scale="0.5 0.5 0.5" />
@@ -48,13 +50,13 @@
 
   <!-- Climbing puzzle -->
   <box class="elevator" position="15 -2 10.4" scale="1.2 10 1.2" style="color: #999" />
-  <box position="13.5 6.5 10.4" scale="1.2 0.2 1.2" style="color: #999" />
-  <box position="9.5 6.5 10.4" scale="1.2 0.2 1.2" style="color: #999" />
-  <box position="5.5 6.5 10.4" scale="1.2 0.2 1.2" style="color: #999" />
-  <box position="4.4 5.9 10.4" rotation="0 0 0.78" scale="2.0 0.2 1.2" style="color: #999" />
-  <box position="3.1 5.2 10.4" scale="1.2 0.2 1.2" style="color: #999" />
-  <box position="-1.5 5.2 10.4" scale="1.2 0.2 1.2" style="color: #999" />
-  <box position="-9 5.2 10.4" scale="8 0.2 1.2" style="color: #999" />
+  <box position="13.5 6.5 10.4" scale="1.2 0.2 2.2" style="color: #999" />
+  <box position="9.5 6.5 10.4" scale="1.2 0.2 2.2" style="color: #999" />
+  <box position="5.5 6.5 10.4" scale="1.2 0.2 2.2" style="color: #999" />
+  <box position="4.4 5.9 10.4" rotation="0 0 0.78" scale="2.0 0.2 2.2" style="color: #999" />
+  <box position="3.1 5.2 10.4" scale="1.2 0.2 2.2" style="color: #999" />
+  <box position="-1.5 5.2 10.4" scale="1.2 0.2 2.2" style="color: #999" />
+  <box position="-9 5.2 10.4" scale="8 0.2 2.2" style="color: #999" />
   <box position="-12 5.2 9" scale="4 0.2 2.4" style="color: #999" />
 
   <link href="//samples.scenevr.hosting/click_to_divide.xml" position="-12.5 6.2 9.4" rotation="0 1.57 0"/>
@@ -186,7 +188,7 @@
 
   <!-- The cave -->
   <link position="12.7 6.5 -23.5" href="//chess.scenevr.hosting/chess.xml" rotation="0 3.14 0" />
-  <model id="bishop" src="/models/bishop.obj" position="4 0 -17" style="color: #ccc;" scale="0.5 0.5 0.5" />
+  <model id="bishop" src="/models/bishop.obj" position="4 0 -17" style="color: #ccc; collision: none;" scale="0.5 0.5 0.5" />
   <billboard position="5.5 1.5 -17.5" scale="1.2 1.2 0.1">
     <![CDATA[
       <h1 style="font-size: 70px; margin: 120px 20px; text-align: center; color: #555">Chess game up the stairs &rarr;</h1>
