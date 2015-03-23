@@ -6,9 +6,11 @@
   <skybox style="color: linear-gradient(#ccc, #555)" />
 
   <!-- Gallery model -->
-  <model src="/models/walls.obj" position="0 0.01 0" style="light-map: url(/textures/walls.jpg); collision: mesh; " />
+  <model src="/models/home.obj" position="0 0.01 0" style="color: #777; light-map: url(/textures/lightmap.jpg); collision: mesh; " />
+  
+  <!--model src="/models/walls.obj" position="0 0.01 0" style="light-map: url(/textures/walls.jpg); collision: mesh; " />
   <model src="/models/ceiling.obj" position="0 0.01 0" style="light-map: url(/textures/ceiling.jpg); collision: none; " />
-  <model src="/models/ball_homeroom.obj" position="0 0.01 0" style="color: #fff; collision: none;" />
+  <model src="/models/ball_homeroom.obj" position="0 0.01 0" style="color: #fff; collision: none;" /-->
 
   <!-- Foyer -->
   <model id="teapot" src="/models/teapot.obj" position="13 1.2 -15" style="color: #f70; collision: none;" scale="0.5 0.5 0.5" />
@@ -201,7 +203,7 @@
       <center style="color: #333; font-size: 48px; margin: 64px;">
         <img src="/images/ben.png" style="width: 256px; height: 256px; border: 2px solid #333;" />
         <br />
-        Bens Office
+        Toastmans Office
       </center>
     ]]>
   </billboard>
