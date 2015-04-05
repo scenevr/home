@@ -1,4 +1,4 @@
-# Models from:
+# Credits
 
 ## "Lowpoly Siamese Cat" by Gwinna
 
@@ -46,3 +46,8 @@ as long as you respect these requirements:
 
 https://3dwarehouse.sketchup.com/model.html?id=4b3607f3cde3037658fc1ad354006c7
 
+## Grafitti
+
+"Copy, Share, Reproduce, Give Credit. Feel free to use my art for your creative purposes. Download at will. Tips are appreciated."
+
+[Clayton Kashuba](http://claytonkashuba.com/wp-content/uploads/2012/06/large_graffiti.png).
