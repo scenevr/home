@@ -3,7 +3,7 @@
 
   <spawn position="0.5 0 12" />
 
-  <skybox style="color: linear-gradient(#ccc, #555)" />
+  <skybox style="color: linear-gradient(#fff, #abf)" />
 
   <!-- Gallery model -->
   <model src="/models/home.obj" position="0 0.01 0" style="color: #777; light-map: url(/textures/lightmap.jpg); collision: mesh; " />
@@ -11,6 +11,22 @@
   <!--model src="/models/walls.obj" position="0 0.01 0" style="light-map: url(/textures/walls.jpg); collision: mesh; " />
   <model src="/models/ceiling.obj" position="0 0.01 0" style="light-map: url(/textures/ceiling.jpg); collision: none; " />
   <model src="/models/ball_homeroom.obj" position="0 0.01 0" style="color: #fff; collision: none;" /-->
+
+  <model id="slumpy" src="/models/slumpy.obj" position="-24 0 19.1" rotation="0 -1.570 0" style="color: #666; collision: none;" scale="0.2 0.2 0.2" />
+
+  <billboard position="-24 2 16" scale="2 2 0.2" rotation="0 1.57 0">
+    <![CDATA[
+      <center style="font-size: 1.5em; padding: 20px; color: #333">
+        In the past decade, technology has made massive steps forward in the areas of mobile technology and social integration. With the easy accessibility of social media, many people seem to disconnect from the world around them, which can be a danger to themselves and others.
+      </center>
+    ]]>
+  </billboard>
+
+  <script>
+    document.getElementById("slumpy").addEventListener("click", function(){
+      console.log("Slumpy groans.");
+    });
+  </script>
 
   <!-- Foyer -->
   <model id="teapot" src="/models/teapot.obj" position="13 1.2 -15" style="color: #f70; collision: none;" scale="0.5 0.5 0.5" />
