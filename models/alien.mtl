@@ -9,7 +9,4 @@ Ks 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 1
-map_Kd alien.jpg
-map_Bump Alien normal map.jpg
-map_Ks Alien specular.jpg
-map_Ns Alien specular.jpg
+map_Kd /textures/alien.jpg

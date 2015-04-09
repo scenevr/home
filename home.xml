@@ -192,7 +192,7 @@
   </billboard>
 
   <!-- North wing -->
-  <model src="/models/alien.obj" position="1.5 0 -48" style="color: #797; texture-map: url(/textures/alien.jpg)" scale="5 5 5" />
+  <model src="/models/alien.obj" mtl="/models/alien.mtl" position="1.5 0 -48" scale="5 5 5" />
 
   <billboard position="1.5 0.4 -44" rotation="-0.32 0 0" scale="1.2 1.2 0.1">
     <![CDATA[
