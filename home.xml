@@ -54,8 +54,8 @@
     ]]>
   </script>
 
-  <model src="/models/armchair.obj" position="-10 0 -13" rotation="0 1.3 0" style="color: #cc303a;" scale="0.8 0.8 0.8" />
-  <model src="/models/armchair.obj" position="-7 0 -16" rotation="0 -0.1 0" style="color: #cc303a;" scale="0.8 0.8 0.8" />
+  <model src="/models/matrix.obj" mtl="/models/matrix.mtl" position="-10 -0.2 -13" rotation="0 1.3 0" scale="0.8 0.8 0.8" style="collision: none" />
+  <model src="/models/matrix.obj" mtl="/models/matrix.mtl" position="-7 -0.2 -16" rotation="0 -0.1 0" scale="0.8 0.8 0.8" style="collision: none" />
   <billboard position="-2 1.0 -17.5" scale="1.2 1.2 0.1">
     <![CDATA[
       <h1 style="font-size: 70px; line-height: 440px; margin: 0; text-align: center; color: #aaa">&larr; Morpheus</h1>
@@ -224,8 +224,8 @@
     ]]>
   </billboard>
 
-  <model src="/models/desk.obj" scale="0.25 0.25 0.25" rotation="0 3.14 0" position="11 0 15.5" style="collision: none; color: #777;" />
-  <model src="/models/mac.obj" scale="1.1 1.1 1.1" rotation="0 1.57 0" position="11.1 1.05 15.6" style="collision: none; color: #eee;" />
+  <model src="/models/desk.obj" mtl="/models/desk.mtl" scale="0.25 0.25 0.25" rotation="0 3.14 0" position="11 0 15.5" style="collision: none; " />
+  <model src="/models/mac.obj" mtl="/models/mac.mtl" scale="1.1 1.1 1.1" rotation="0 1.57 0" position="11.1 1.05 15.6" style="collision: none; " />
   <plane scale="0.18 0.15 0.1" rotation="0 1.57 0" position="11.12 1.31 15.46" style="texture-map: url(/images/system1.png);" />
   <box scale="0.3 1.5 0.9" position="11.1 0.75 15.5" style="visibility: hidden;" />
   <plane scale="1.2 1.6 0.1" rotation="0 1.57 0" position="8.26 2.5 15.4" style="texture-map: url(/images/chloe.jpg);" />

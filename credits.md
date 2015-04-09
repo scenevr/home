@@ -29,7 +29,7 @@ From Janus VR
 
 ## Armchair
 
-From Janus VR
+http://tf3dm.com/3d-model/armchair-2422.html
 
 ## Desk by Pharion
 
