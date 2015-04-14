@@ -68,6 +68,15 @@
     ]]>
   </billboard>
 
+  <!-- Qster -->
+  <billboard position="5.2 1.0 -7" scale="1.8 1.8 0.1">
+    <![CDATA[
+      <h1 style="font-size: 70px; margin: 20px; text-align: center; color: #333">Qsters Tower</h1>
+    ]]>
+  </billboard>
+  <link position="5.2 1.0 -6.8" href="//qster123.scenevr.hosting/index.xml" />
+
+  <!-- Puckman link -->
   <audio id="puckman-sound" src="/audio/puckman.mp3" position="-1.5 0 -7.5" />
   <model id="ghost" src="/models/ghost.obj" position="-1.5 0 -7.5" scale="0.8 0.8 0.8" rotation="0 3.14 0" style="color: #00FFDE" />
   <billboard position="-3.7 1.0 -7" scale="1.8 1.8 0.1">
