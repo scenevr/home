@@ -118,19 +118,19 @@
   </script>
 
   <!-- Toggle Matrix -->
-  <box class="palette" position="-5 1 10.9" scale="0.3 0.3 0.3" style="color: #fff" />
-  <box class="palette" position="-5 1.5 10.9" scale="0.3 0.3 0.3" style="color: #0ff" />
-  <box class="palette" position="-5 2 10.9" scale="0.3 0.3 0.3" style="color: #f0f" />
-  <box class="palette" position="-5 2.5 10.9" scale="0.3 0.3 0.3" style="color: #000" />
+  <box class="palette" position="-5 1 10.9" scale="0.3 0.3 0.3" style="emissive-color: #000" />
+  <box class="palette" position="-5 1.5 10.9" scale="0.3 0.3 0.3" style="emissive-color: #0aa" />
+  <box class="palette" position="-5 2 10.9" scale="0.3 0.3 0.3" style="emissive-color: #f1f" />
+  <box class="palette" position="-5 2.5 10.9" scale="0.3 0.3 0.3" style="emissive-color: #fff" />
 
   <script>
     <![CDATA[
       var x, y,
         offset = new Vector(-7, 1, 10.8),
-        color = '#fff';
+        color = '#000';
 
       document.querySelectorAll("box.palette").forEach(function(box){
-        box.addEventListener("click", function(){ color = box.style.color; });
+        box.addEventListener("click", function(){ color = box.style.emissiveColor; });
       })
 
       function updateName(name){
@@ -139,16 +139,20 @@
         // b.appendChild(document.createCDataNode("");
       }
 
-      for(x=0;x<6;x++){
-        for(y=0;y<6;y++){
+      for(x=0;x<8;x++){
+        for(y=0;y<8;y++){
           (function(x,y){
             var pixel = document.createElement("box");
-            pixel.style.color = Math.random() < 0.5 ? "#000" : color;
-            pixel.scale = new Vector(0.25, 0.25, 0.05);
-            pixel.position = new Vector(x * 0.3, y * 0.3, 0).add(offset);
+            pixel.style.emissiveColor = Math.random() < 0.5 ? "#fff" : color;
+            pixel.style.collision = 'none';
+            pixel.scale = new Vector(0.2, 0.2, 0.05);
+            pixel.position = new Vector(x * 0.22, y * 0.22, 0).add(offset);
             document.scene.appendChild(pixel);
 
-            pixel.addEventListener("click", function(e){ updateName(e.player.name); pixel.style.color = (pixel.style.color == color) ? "#000" : color; });
+            pixel.addEventListener("click", function(e){ 
+              updateName(e.player.name); 
+              pixel.style.emissiveColor = (pixel.style.emissiveColor == color) ? "#000" : color; 
+            });
           })(x,y);
         }
       }
@@ -233,7 +237,7 @@
   </billboard>
 
   <model src="/models/desk.obj" mtl="/models/desk.mtl" scale="0.25 0.25 0.25" rotation="0 3.14 0" position="11 0 15.5" style="collision: none; " />
-  <model src="/models/mac.obj" mtl="/models/mac.mtl" scale="1.1 1.1 1.1" rotation="0 1.57 0" position="11.1 1.05 15.6" style="collision: none; " />
+  <model id="computer" src="/models/mac.obj" mtl="/models/mac.mtl" scale="1.1 1.1 1.1" rotation="0 1.57 0" position="11.1 1.05 15.6" style="collision: none; " />
   <plane scale="0.18 0.15 0.1" rotation="0 1.57 0" position="11.12 1.31 15.46" style="texture-map: url(/images/system1.png);" />
   <box scale="0.3 1.5 0.9" position="11.1 0.75 15.5" style="visibility: hidden;" />
   <plane scale="1.2 1.6 0.1" rotation="0 1.57 0" position="8.26 2.5 15.4" style="texture-map: url(/images/chloe.jpg);" />
