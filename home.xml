@@ -5,6 +5,8 @@
 
   <skybox style="color: linear-gradient(#fff, #abf)" />
 
+  <script src="scripts/scenequery.js" />
+
   <!-- Graff -->
   <plane position="-12.5 4.5 -11" rotation="0 1.57 0" scale="10 5 0" style="texture-map: url(/images/large_graffiti.png)" />
   <billboard position="-12.5 1.0 -7" scale="1.2 1.2 0.1" rotation="0 1.57 0">
@@ -66,6 +68,7 @@
     ]]>
   </billboard>
 
+  <audio id="puckman-sound" src="/audio/puckman.mp3" position="-1.5 0 -7.5" />
   <model id="ghost" src="/models/ghost.obj" position="-1.5 0 -7.5" scale="0.8 0.8 0.8" rotation="0 3.14 0" style="color: #00FFDE" />
   <billboard position="-3.7 1.0 -7" scale="1.8 1.8 0.1">
     <![CDATA[
@@ -78,6 +81,15 @@
     setInterval(function(){
       document.getElementById("ghost").rotation.y = Math.PI + Math.sin(new Date().valueOf() / 1000);
     }, 1000 / document.scene.ticksPerSecond);
+
+    $("#ghost").click(function () {
+      console.log("Clyde says...");
+
+      setTimeout(function () {
+        console.log('... boo!');
+        $("#puckman-sound")[0].play();
+      }, 1500);
+    });
   </script>
 
   <!-- Climbing puzzle -->
