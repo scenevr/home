@@ -24,7 +24,7 @@
   <model src="/models/ceiling.obj" position="0 0.01 0" style="light-map: url(/textures/ceiling.jpg); collision: none; " />
   <model src="/models/ball_homeroom.obj" position="0 0.01 0" style="color: #fff; collision: none;" /-->
 
-  <model id="slumpy" src="/models/slumpy.obj" position="-24 0 19.1" rotation="0 -1.570 0" style="color: #666; collision: none;" scale="0.2 0.2 0.2" />
+  <model id="slumpy" src="/models/slumpy.obj" mtl="/models/slumpy.mtl" position="-23 0 18.8" rotation="0 -1.9 0" style="color: #666; collision: none;" scale="0.8 0.8 0.8" />
 
   <billboard position="-24 2 16" scale="2 2 0.2" rotation="0 1.57 0">
     <![CDATA[
